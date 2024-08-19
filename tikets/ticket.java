@@ -26,8 +26,11 @@ public class ticket {
         this.numero = numero;
     }
 
+    @Override
+    public String toString() {
+        return "ticket{" + "Tipo=" + Tipo + ", numero=" + numero + '}';
+    }
+
   
-   
-   
     
 }

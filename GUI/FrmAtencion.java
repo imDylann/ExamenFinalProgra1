@@ -64,6 +64,7 @@ public class FrmAtencion extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(153, 153, 153));
 
+        TxtTipo.setEditable(false);
         TxtTipo.setBackground(new java.awt.Color(242, 242, 242));
         TxtTipo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         TxtTipo.addActionListener(new java.awt.event.ActionListener() {
@@ -90,6 +91,7 @@ public class FrmAtencion extends javax.swing.JFrame {
         numeroLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         numeroLbl.setText("Numero:");
 
+        NumeroTxt.setEditable(false);
         NumeroTxt.setBackground(new java.awt.Color(242, 242, 242));
         NumeroTxt.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         NumeroTxt.addActionListener(new java.awt.event.ActionListener() {
