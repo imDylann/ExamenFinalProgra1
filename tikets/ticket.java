@@ -26,9 +26,7 @@ public class ticket {
         this.numero = numero;
     }
 
-    public void setTipo(String Tipo) {
-        this.Tipo = Tipo;
-    }
+  
    
    
     

@@ -61,8 +61,6 @@ public class FrmGenerador extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         jPanel2.setBackground(new java.awt.Color(51, 51, 255));
 
         MenuLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -80,8 +78,6 @@ public class FrmGenerador extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(MenuLbl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
-
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 40));
 
         jPanel3.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -146,13 +142,10 @@ public class FrmGenerador extends javax.swing.JFrame {
                 .addGap(20, 20, 20))
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 190, 380));
-
         TipoLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         TipoLbl.setForeground(new java.awt.Color(102, 102, 102));
         TipoLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TipoLbl.setText("Tipo:");
-        jPanel1.add(TipoLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 590, 40));
 
         tipoTxt.setBackground(new java.awt.Color(242, 242, 242));
         tipoTxt.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -161,19 +154,16 @@ public class FrmGenerador extends javax.swing.JFrame {
                 tipoTxtActionPerformed(evt);
             }
         });
-        jPanel1.add(tipoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 240, 140, -1));
 
         TicketLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         TicketLbl.setForeground(new java.awt.Color(102, 102, 102));
         TicketLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TicketLbl.setText("Ticket Generado");
-        jPanel1.add(TicketLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 590, 40));
 
         NumeroLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         NumeroLbl.setForeground(new java.awt.Color(102, 102, 102));
         NumeroLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         NumeroLbl.setText("Numero:");
-        jPanel1.add(NumeroLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 590, 40));
 
         numeroTxt.setBackground(new java.awt.Color(242, 242, 242));
         numeroTxt.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -182,7 +172,6 @@ public class FrmGenerador extends javax.swing.JFrame {
                 numeroTxtActionPerformed(evt);
             }
         });
-        jPanel1.add(numeroTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 140, 140, -1));
 
         NuevoTktBtn.setBackground(new java.awt.Color(242, 242, 242));
         NuevoTktBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -192,7 +181,47 @@ public class FrmGenerador extends javax.swing.JFrame {
                 NuevoTktBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(NuevoTktBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, 210, -1));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TicketLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(NumeroLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(230, 230, 230)
+                        .addComponent(numeroTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TipoLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(230, 230, 230)
+                        .addComponent(tipoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(NuevoTktBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(TicketLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(NumeroLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(numeroTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14)
+                        .addComponent(TipoLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(tipoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(114, 114, 114)
+                        .addComponent(NuevoTktBtn))))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
