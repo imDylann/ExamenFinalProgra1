@@ -4,6 +4,9 @@
  */
 package GUI;
 
+import tikets.Controlador;
+import tikets.ticket;
+
 /**
  *
  * @author Student
@@ -13,11 +16,13 @@ public class FrmGenerador extends javax.swing.JFrame {
     /**
      * Creates new form FrmGenerador
      */
+    private Controlador control;
     public FrmGenerador() {
         initComponents();
         disableOrActiveAll(false);
+        control = new Controlador();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,7 +40,6 @@ public class FrmGenerador extends javax.swing.JFrame {
         MenuLbl = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        GenerarBtn = new javax.swing.JButton();
         PlataformaLbl = new javax.swing.JLabel();
         PreferLbl = new javax.swing.JLabel();
         CajaLbl = new javax.swing.JLabel();
@@ -44,7 +48,6 @@ public class FrmGenerador extends javax.swing.JFrame {
         TicketLbl = new javax.swing.JLabel();
         NumeroLbl = new javax.swing.JLabel();
         numeroTxt = new javax.swing.JTextField();
-        NuevoTktBtn = new javax.swing.JButton();
 
         GenerarBtn1.setBackground(new java.awt.Color(153, 153, 153));
         GenerarBtn1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -86,29 +89,35 @@ public class FrmGenerador extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Seleccione el tipo de ticket");
 
-        GenerarBtn.setBackground(new java.awt.Color(153, 153, 153));
-        GenerarBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        GenerarBtn.setText("Generar");
-        GenerarBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GenerarBtnActionPerformed(evt);
-            }
-        });
-
         PlataformaLbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         PlataformaLbl.setForeground(new java.awt.Color(255, 255, 255));
         PlataformaLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        PlataformaLbl.setText("Plataforma");
+        PlataformaLbl.setText("Generar Plataforma");
+        PlataformaLbl.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PlataformaLblMouseClicked(evt);
+            }
+        });
 
         PreferLbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         PreferLbl.setForeground(new java.awt.Color(255, 255, 255));
         PreferLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        PreferLbl.setText("Preferencial");
+        PreferLbl.setText("Generar Preferencial");
+        PreferLbl.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PreferLblMouseClicked(evt);
+            }
+        });
 
         CajaLbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         CajaLbl.setForeground(new java.awt.Color(255, 255, 255));
         CajaLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        CajaLbl.setText("Caja");
+        CajaLbl.setText("Generar Caja");
+        CajaLbl.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CajaLblMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -122,10 +131,6 @@ public class FrmGenerador extends javax.swing.JFrame {
                     .addComponent(PreferLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(CajaLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(GenerarBtn)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,9 +142,7 @@ public class FrmGenerador extends javax.swing.JFrame {
                 .addComponent(CajaLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(16, 16, 16)
                 .addComponent(PreferLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 162, Short.MAX_VALUE)
-                .addComponent(GenerarBtn)
-                .addGap(20, 20, 20))
+                .addContainerGap(208, Short.MAX_VALUE))
         );
 
         TipoLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -173,15 +176,6 @@ public class FrmGenerador extends javax.swing.JFrame {
             }
         });
 
-        NuevoTktBtn.setBackground(new java.awt.Color(242, 242, 242));
-        NuevoTktBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        NuevoTktBtn.setText("Nuevo Ticket");
-        NuevoTktBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NuevoTktBtnActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -198,10 +192,7 @@ public class FrmGenerador extends javax.swing.JFrame {
                     .addComponent(TipoLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(230, 230, 230)
-                        .addComponent(tipoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(NuevoTktBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(tipoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,9 +209,7 @@ public class FrmGenerador extends javax.swing.JFrame {
                         .addGap(14, 14, 14)
                         .addComponent(TipoLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(20, 20, 20)
-                        .addComponent(tipoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(114, 114, 114)
-                        .addComponent(NuevoTktBtn))))
+                        .addComponent(tipoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -247,17 +236,39 @@ public class FrmGenerador extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_numeroTxtActionPerformed
 
-    private void GenerarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerarBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_GenerarBtnActionPerformed
-
     private void GenerarBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerarBtn1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_GenerarBtn1ActionPerformed
 
-    private void NuevoTktBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NuevoTktBtnActionPerformed
+    private void PlataformaLblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PlataformaLblMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_NuevoTktBtnActionPerformed
+        ticket t = control.generar("P");
+        this.numeroTxt.setText(String.valueOf(t.getNumero()));
+        this.tipoTxt.setText(t.getTipo());
+        disableOrActiveAll(true);
+        
+        
+        
+    }//GEN-LAST:event_PlataformaLblMouseClicked
+
+    private void CajaLblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CajaLblMouseClicked
+        // TODO add your handling code here:
+           ticket t =  control.generar("C");
+          this.numeroTxt.setText(String.valueOf(t.getNumero()));
+        this.tipoTxt.setText(t.getTipo());
+         disableOrActiveAll(true);
+        
+    }//GEN-LAST:event_CajaLblMouseClicked
+
+    private void PreferLblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PreferLblMouseClicked
+        // TODO add your handling code here:
+       ticket t =  control.generar("A");
+        this.numeroTxt.setText(String.valueOf(t.getNumero()));
+        this.tipoTxt.setText(t.getTipo());
+         disableOrActiveAll(true);
+        
+        
+    }//GEN-LAST:event_PreferLblMouseClicked
 
     /**
      * @param args the command line arguments
@@ -296,8 +307,6 @@ public class FrmGenerador extends javax.swing.JFrame {
     public void disableOrActiveAll(boolean x){
          this.TicketLbl.setVisible(x);
         this.TicketLbl.setEnabled(x);
-        this.NuevoTktBtn.setEnabled(x);
-        this.NuevoTktBtn.setVisible(x);
         this.NumeroLbl.setEnabled(x);
         this.NumeroLbl.setVisible(x);
         this.numeroTxt.setEnabled(x);
@@ -309,10 +318,8 @@ public class FrmGenerador extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CajaLbl;
-    private javax.swing.JButton GenerarBtn;
     private javax.swing.JButton GenerarBtn1;
     private javax.swing.JLabel MenuLbl;
-    private javax.swing.JButton NuevoTktBtn;
     private javax.swing.JLabel NumeroLbl;
     private javax.swing.JLabel PlataformaLbl;
     private javax.swing.JLabel PreferLbl;

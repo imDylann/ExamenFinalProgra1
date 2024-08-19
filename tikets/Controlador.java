@@ -17,11 +17,11 @@ public class Controlador {
       private ListaTickets litaticketes;
 
     public Controlador() {
-      
+      ticketCounters = new HashMap<>();
         this.litaticketes = ListaTickets.getInstance();
     }
       
-       public void generar(String tipo) {
+       public ticket generar(String tipo) {
           
        if (!ticketCounters.containsKey(tipo)) {
         ticketCounters.put(tipo, 0);
@@ -29,9 +29,13 @@ public class Controlador {
         int numero = ticketCounters.get(tipo) + 1;
         ticketCounters.put(tipo, numero);
 
-        ticket ticket = new ticket(tipo, numero);
-        litaticketes.addTicket(ticket);
+        ticket t = new ticket(tipo, numero);
+        litaticketes.addTicket(t);
+        return t;
     }
 
-  
+  public ticket Atender(){
+      //en proceso ASJDJASD
+    return null;  
+  }
 }
