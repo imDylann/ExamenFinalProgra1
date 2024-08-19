@@ -4,6 +4,8 @@
  */
 package GUI;
 
+import tikets.ListaTickets;
+
 /**
  *
  * @author Student
@@ -13,8 +15,19 @@ public class FrmPantalla extends javax.swing.JFrame {
     /**
      * Creates new form FrmPantalla
      */
+    private ListaTickets list;
     public FrmPantalla() {
         initComponents();
+        jLabel3.setEnabled(true);
+        jLabel3.setVisible(true);
+          jLabel2.setEnabled(true);
+        jLabel2.setVisible(true);
+        jLabel2.setText("");
+         jLabel3.setText("");
+          list = ListaTickets.getInstance();
+           jLabel2.setText(String.valueOf(this.list.devolverUltimoTicket().getNumero()));
+         jLabel3.setText(this.list.devolverUltimoTicket().getTipo());
+         
     }
 
     /**

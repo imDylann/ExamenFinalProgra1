@@ -4,6 +4,8 @@
  */
 package GUI;
 
+import tikets.ListaTickets;
+
 /**
  *
  * @author Student
@@ -13,8 +15,11 @@ public class FrmAtencion extends javax.swing.JFrame {
     /**
      * Creates new form FrmAtencion
      */
+    private ListaTickets list;
+    
     public FrmAtencion() {
         initComponents();
+        list = ListaTickets.getInstance();
     }
 
     /**
@@ -97,6 +102,11 @@ public class FrmAtencion extends javax.swing.JFrame {
         BtnSiguiente.setBackground(new java.awt.Color(242, 242, 242));
         BtnSiguiente.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         BtnSiguiente.setText("Siguiente");
+        BtnSiguiente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSiguienteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -187,6 +197,17 @@ public class FrmAtencion extends javax.swing.JFrame {
     private void NumeroTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NumeroTxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NumeroTxtActionPerformed
+
+    private void BtnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSiguienteActionPerformed
+        NumeroTxt.setText(String.valueOf(this.list.devolverUltimoTicket().getNumero()));
+        if(this.list.devolverUltimoTicket().getTipo().equals("P")){
+          TxtTipo.setText("Plataforma");
+        }else if(this.list.devolverUltimoTicket().getTipo().equals("A")){
+          TxtTipo.setText("Preferencial");  
+        }else{
+                 TxtTipo.setText("Cajas");   
+        }
+    }//GEN-LAST:event_BtnSiguienteActionPerformed
 
     /**
      * @param args the command line arguments
