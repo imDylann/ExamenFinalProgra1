@@ -25,6 +25,7 @@ public class ticket {
         this.Tipo = Tipo;
         this.numero = numero;
     }
+    
 
     @Override
     public String toString() {

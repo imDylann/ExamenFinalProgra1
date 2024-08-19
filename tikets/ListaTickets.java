@@ -32,18 +32,28 @@ public class ListaTickets {
      }
      
      public void eliminarPos(int pos){
-                            
-
-        //List<ticket> list = new ArrayList<>(listatick); //aqui hay que pasar el queue a un list para buscar por valor!!!
-        
-        int positionToRemove = 2;  
-        if (positionToRemove >= 0 && positionToRemove < list.size()) {
-            list.remove(positionToRemove);
-        }
-        
-        listatick = new LinkedList<>(list);
+        ArrayList<ticket> list = new ArrayList<>(listaticketes);
+        if (pos >= 0 && pos < list.size()) {
+            list.remove(pos);      //logicamente esta bien solamente hay que ver si la transformacion de queue - array y viceversa funciona
+        } 
+        listaticketes = new LinkedList<>(list);
+     }
+     
+     public void eliminarVal(int val){
+         ticket tic = new ticket("P",val);
+         ticket tick = new ticket("C",val);
+          ticket ticke = new ticket("A",val);
+             if(listaticketes.contains(tic)){
+                 listaticketes.remove(tic);
+             }else if(listaticketes.contains(tick)){
+                 listaticketes.remove(tick);
+             }else{
+                 listaticketes.remove(ticke);
+             }
      }
 
+    
+     
     @Override
     public String toString() {
         return "ListaTickets{" + "listaticketes=" + listaticketes + '}';
