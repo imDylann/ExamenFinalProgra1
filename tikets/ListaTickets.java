@@ -52,7 +52,12 @@ public class ListaTickets {
              }
      }
 
+
     
+    public ticket devolverUltimoTicket(){
+        return listaticketes.poll();
+    }
+        
      
     @Override
     public String toString() {
